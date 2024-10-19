@@ -1,6 +1,6 @@
 # Generic Executor Service in PHP
 A Generic Executor Service in PHP for asynchronous calls. 
-This repository demonstrates a basic implementation of a Generic Executor Service in PHP 8 using the pcntl extension to handle concurrency. It mimics the behavior of Java's ExecutorService by managing a pool of "workers" (processes) that execute tasks asynchronously.
+This repository demonstrates a basic implementation of a Generic Executor Service in PHP 8 using the ```pcntl``` extension to handle concurrency. It mimics the behavior of Java's ExecutorService by managing a pool of "workers" (processes) that execute tasks asynchronously.
 
 **generic-executor-service-php** a language port from Java to PHP from the repository which I created a while ago called **generic-executor-service-java** (https://github.com/niteshapte/generic-executor-service-java)
 
