@@ -32,13 +32,16 @@ The ```GenericExecutorService``` relies on the ```pcntl_fork()``` function to cr
 ## Compatibility
 ```pcntl``` is not available on Windows, so this solution works best in Unix-like environments.
 
+
 ## Customization
 You can modify the following aspects of the service:
 - Max Workers: Control the maximum number of concurrent workers by passing an integer to the GenericExecutorService constructor.
 - Task Length: Simulate longer or shorter tasks by adjusting the sleep duration inside the tasks.
 
+
 ## Contribution
 Contributions are welcome! If you'd like to improve this project, feel free to fork the repository and submit a pull request.
+
 
 ### Steps to Contribute:
 1. Fork this repository by clicking the **Fork** button at the top right.
