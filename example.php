@@ -1,21 +1,26 @@
 <?php
 include 'GenericExecutorService.php';
-// Example task to run
-$service = new GenericExecutorService(3);
+// List of URLs to call
+$urls = [
+    "https://jsonplaceholder.typicode.com/posts/1",
+    "https://jsonplaceholder.typicode.com/posts/2",
+    "https://jsonplaceholder.typicode.com/posts/3",
+    "https://jsonplaceholder.typicode.com/posts/4",
+    "https://jsonplaceholder.typicode.com/posts/5",
+    "https://jsonplaceholder.typicode.com/posts/6",
+];
 
-$task1 = function() {
-    echo "Executing Task 1\n";
-    sleep(2);
-    echo "Task 1 Completed\n";
-};
+// Instantiate the service with a max of 3 workers
+$executor = new GenericExecutorService(3);
 
-$task2 = function() {
-    echo "Executing Task 2\n";
-    sleep(3);
-    echo "Task 2 Completed\n";
-};
+foreach ($urls as $url) {
+    $executor->submit(function() use ($url) {
+        // Each task fetches the URL content
+        $content = file_get_contents($url);
+        echo "Fetched from $url: " . substr($content, 0, 100) . "\n"; // Display a snippet of the response
+    });
+}
 
-$service->submit($task1);
-$service->submit($task2);
-$service->shutdown();
+// Wait for all workers to complete
+$executor->shutdown();
 ?>
